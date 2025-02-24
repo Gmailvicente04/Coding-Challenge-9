@@ -60,3 +60,10 @@ const company = new Company("Oswald Inc.");
 company.addEmployee(emp1);
 company.addEmployee(mgr1);
 company.listEmployees();
+
+// Task 4: Implementing a Payroll System
+Company.prototype.calculateTotalPayroll = function () {
+    return this.employees.reduce((total, emp) => total + emp.calculateAnnualSalary() + (emp instanceof Manager ? emp.calculateBonus() : 0), 0);
+};
+
+console.log(company.calculateTotalPayroll());
